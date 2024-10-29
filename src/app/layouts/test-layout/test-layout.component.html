@@ -1,0 +1,59 @@
+<div class="wrapper">
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top">
+        <div class="container-fluid">
+            <button (click)="toggleSidebar()" type="button" id="sidebarCollapse" >
+                <i class="fas fa-align-left"></i>
+            </button>
+            <!-- <h5 class="navbar-brand ms-3">My Application</h5> -->
+            <ul  ngbDropdown class="navbar-nav flex-row d-none d-md-flex nav-dropdown" >
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdown" ngbDropdownToggle role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{username}}
+                  </a>
+                  <div placement="bottom-left" ngbDropdownMenu class="dropdown-menu menu-right" aria-labelledby="navbarDropdown">
+                    <a (click)="logout()" class="dropdown-item">Logout</a>
+                  </div>
+                </li>
+              </ul>
+        </div>
+    </nav>
+
+    <nav [ngClass]="{'sidebar-closed' : !sidebarToggle}" id="sidebar" (mouseenter)="opensidebar()" (mouseleave)="closesidebar()">
+        <div class="sidebar-header">
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-briefcase"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+            </li>
+            <li >
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">
+                    <i class="fas fa-home"></i>
+                    <span class="menu-text">Home</span>
+                </a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">Home 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 3</a>
+                    </li>
+                </ul>
+            </li>
+            
+            
+        </ul>
+
+    </nav>
+
+    <div id="content" style="margin-top: 56px;"> <!-- Adjust for navbar height -->
+        <router-outlet></router-outlet>
+    </div>
+</div>

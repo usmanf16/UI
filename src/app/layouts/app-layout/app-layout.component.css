@@ -1,0 +1,134 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2rem;
+  }
+  
+  /* Sidebar and main content wrapper */
+  .content-wrapper {
+    display: flex;
+    flex: 1;
+    height: 100%;
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    transition: width 0.3s;
+  }
+  
+  .sidebar.collapsed {
+    width: 80px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar li:hover {
+    background-color: #555;
+  }
+  
+  .menu-icon {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Hide text when sidebar is collapsed */
+  .sidebar.collapsed .menu-icon + span {
+    display: none;
+  }
+  
+  .sidebar.collapsed .submenu {
+    display: none;
+  }
+  
+  /* Submenu styling */
+  .submenu {
+    list-style: none;
+    padding-left: 1.5rem;
+    background-color: #444;
+    display: none; /* Hidden by default */
+  }
+  
+  .submenu li {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #ddd;
+    transition: background-color 0.3s;
+  }
+  
+  .submenu li:hover {
+    background-color: #666;
+    color: white;
+  }
+  
+  /* Show submenu on parent item click */
+  .sidebar li.active .submenu {
+    display: block;
+  }
+  
+  /* Sidebar toggle button styling */
+  .sidebar li:first-child {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  /* Main content area styling */
+  .main-content {
+    flex: 1;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    overflow-y: auto;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .top-nav {
+      font-size: 1rem;
+    }
+  
+    .sidebar {
+      position: absolute;
+      z-index: 1;
+      height: 100vh;
+      width: 80px;
+    }
+  
+    .content-wrapper {
+      flex-direction: column;
+    }
+  
+    .main-content {
+      padding: 0.5rem;
+    }
+  }
+  .open-sidebar{
+    position: relative;
+    right: 92px;
+  }
